@@ -1,4 +1,3 @@
-source = VideoReader('2017_05_17.mp4');
 fr = imread('background.jpg');
 bground = imread('background.jpg');
 
@@ -39,7 +38,7 @@ sd = ones(height,width,C)*sd_init;
 w = ones(height,width,C)*(1/C);
 
 
-for n = 477:source.NumberOfFrames
+for n = 1036:source.NumberOfFrames
     
     thisfile=sprintf('frame_%04d.jpg',n);
     fr = imread(thisfile);       
@@ -130,14 +129,8 @@ for n = 477:source.NumberOfFrames
         end
     end
     
-    figure(1),subplot(3,1,1),imshow(fr)
-    subplot(3,1,2),imshow(uint8(bg_bw))
-    subplot(3,1,3),imshow(uint8(fg)) 
-    
     
     outfile=sprintf('aresult_%04d.jpg',n);
     
     imwrite(uint8(fg),outfile);
-    outfile1 = sprintf('abresult_%04d.jpg',n);
-    imwrite(uint8(bg_bw),outfile1);
 end
